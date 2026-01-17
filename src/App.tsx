@@ -1,12 +1,11 @@
-import { NavLink } from "react-router";
-
 import "./App.css";
+import { Post } from "./components/post";
 
 function App() {
   return (
     <>
-      <div>
-        <NavLink to="/test">To Test</NavLink>
+      <div className="w-full h-full">
+        <Post />
       </div>
     </>
   );
