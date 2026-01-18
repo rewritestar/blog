@@ -1,11 +1,11 @@
 import "./App.css";
-import { Post } from "./components/post";
+import { Page } from "./components/page";
 
 function App() {
   return (
     <>
       <div className="w-full h-full">
-        <Post />
+        <Page />
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 ---
-title: test
+title: test3
 category: category-test
 createdDate: 2026-01-16
-slug: testcopy
+slug: test3
 ---
 
 # 테스트용 마크다운 파일입니다.

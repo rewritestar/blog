@@ -1,16 +1,8 @@
 {
   "categoryList": {
-    "category2": [
-      {
-        "title": "카테고리 테스트",
-        "category": "category2",
-        "createdDate": "2026-01-17T08:17",
-        "slug": "newcateogry"
-      }
-    ],
     "category-test": [
       {
-        "title": "test",
+        "title": "test9",
         "category": "category-test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "testcopy"
@@ -20,8 +12,58 @@
         "category": "category-test",
         "createdDate": "2026-01-15T00:00:00.000Z",
         "slug": "test"
+      },
+      {
+        "title": "test2",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test2"
+      },
+      {
+        "title": "test3",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test3"
+      },
+      {
+        "title": "test4",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test4"
+      },
+      {
+        "title": "test5",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test5"
+      },
+      {
+        "title": "test6",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test6"
+      },
+      {
+        "title": "test7",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test7"
+      },
+      {
+        "title": "test8",
+        "category": "category-test",
+        "createdDate": "2026-01-16T00:00:00.000Z",
+        "slug": "test8"
+      }
+    ],
+    "category2": [
+      {
+        "title": "카테고리 테스트",
+        "category": "category2",
+        "createdDate": "2026-01-17T08:17",
+        "slug": "newcateogry"
       }
     ]
   },
-  "totalPost": 3
+  "totalPost": 10
 }
