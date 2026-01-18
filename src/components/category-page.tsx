@@ -12,12 +12,11 @@ const limit = 5;
 
 export function CategoryPage({ totalList }: CategoryPageProps) {
   const { slug } = useParams();
-  const postIdx = totalList.findIndex((item) => item.slug === slug);
-  const [pageIdx, setPageIdx] = useState(Math.floor(postIdx / limit));
+  const postIdx = slug ? totalList.findIndex((item) => item.slug === slug) : 0;
+  const [pageIdx, setPageIdx] = useState(0);
   const list = totalList.slice(pageIdx * limit, pageIdx * limit + limit);
 
   useEffect(() => {
-    // 새로고침시 pageIdx 초기값
     setPageIdx(Math.floor(postIdx / limit));
   }, [postIdx]);
 
@@ -29,7 +28,7 @@ export function CategoryPage({ totalList }: CategoryPageProps) {
     <>
       {list.map((item: Post) => {
         return (
-          <NavLink to={`/${item.category}/${item.slug}`}>
+          <NavLink to={`/${item.slug}`}>
             <div className="flex justify-between items-center font-light border-b border-gray-200 p-1">
               <span className={item.slug === slug ? "font-normal" : ""}>
                 {item.title}

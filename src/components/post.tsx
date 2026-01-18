@@ -9,7 +9,7 @@ import { Meta } from "./meta";
 export function Post() {
   const [meta, setMeta] = useState<Post | undefined>();
   const [markDown, setMarkDown] = useState<string | undefined>("");
-  const { category, slug } = useParams();
+  const { slug } = useParams();
   useEffect(() => {
     fetch(`/src/content/posts.json`)
       .then((response) => response.text())
@@ -17,9 +17,7 @@ export function Post() {
         const postList = JSON.parse(text);
         let selectedPost: Post = postList[0];
         if (slug) {
-          selectedPost = postList.find(
-            (item: Post) => item.slug === slug && item.category === category,
-          );
+          selectedPost = postList.find((item: Post) => item.slug === slug);
         }
 
         if (selectedPost) {
@@ -34,7 +32,7 @@ export function Post() {
           setMarkDown(selectedPost.content);
         }
       });
-  }, [category, slug]);
+  }, [slug]);
 
   return (
     <div className="flex flex-col w-3xl p-8">
