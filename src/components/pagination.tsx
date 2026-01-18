@@ -13,13 +13,13 @@ export function Pagination({
 }: PaginationProps) {
   const pageCount: number = Math.ceil(postTotal / limit);
   return (
-    <>
+    <div className="flex justify-center ">
       {Array(pageCount)
         .fill(null)
         .map((_, i) => {
           return (
             <button
-              className={`border border-gray-200 p-2 ${i === currentPageIdx && "font-bold"}`}
+              className={`border border-gray-200 p-2 mr-1 ${i === currentPageIdx && "font-bold"}`}
               onClick={() => {
                 movePage(i);
               }}
@@ -28,6 +28,6 @@ export function Pagination({
             </button>
           );
         })}
-    </>
+    </div>
   );
 }

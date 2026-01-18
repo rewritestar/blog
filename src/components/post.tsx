@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams, useSearchParams } from "react-router";
 import Markdown from "react-markdown";
 import moment from "moment";
 
@@ -10,16 +10,20 @@ export function Post() {
   const [meta, setMeta] = useState<Post | undefined>();
   const [markDown, setMarkDown] = useState<string | undefined>("");
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch(`/src/content/posts.json`)
       .then((response) => response.text())
       .then((text) => {
         const postList = JSON.parse(text);
-        let selectedPost: Post = postList[0];
-        if (slug) {
-          selectedPost = postList.find((item: Post) => item.slug === slug);
+        if (!slug) {
+          const firstPost = postList[0];
+          navigate(`/${firstPost.slug}?ct=${searchParams.get("ct")}`);
         }
 
+        const selectedPost = postList.find((item: Post) => item.slug === slug);
         if (selectedPost) {
           setMeta({
             title: selectedPost.title,
