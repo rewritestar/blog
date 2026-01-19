@@ -15,7 +15,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 const files = fs.readdirSync(POSTS_DIR);
 
 const posts = [];
-const categories: CategoryContent = { categoryList: {}, totalPost: 0 };
+const categories: CategoryContent = { categoryList: {}, postTotal: 0 };
 let count = 0;
 
 for (const file of files) {
@@ -42,22 +42,22 @@ for (const file of files) {
   posts.push(post);
   count++;
 }
-categories.totalPost = count;
+categories.postTotal = count;
 
 // 최신순 정렬
 posts.sort(
   (a, b) =>
-    new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()
+    new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime(),
 );
 
 fs.writeFileSync(
   path.join(OUTPUT_DIR, "posts.json"),
-  JSON.stringify(posts, null, 2)
+  JSON.stringify(posts, null, 2),
 );
 
 fs.writeFileSync(
   path.join(OUTPUT_DIR, "categories.json"),
-  JSON.stringify(categories, null, 2)
+  JSON.stringify(categories, null, 2),
 );
 
 console.log("✅ content build complete");

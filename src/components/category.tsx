@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-import type { CategoryContent } from "../../models/category.model";
 import { NavLink, useSearchParams } from "react-router";
+import categories from "../content/categories.json";
 import type { Post } from "../../models/post.model";
 
 export function Category() {
-  const [postTotal, setPostTotal] = useState(0);
-  const [categoryList, setCategoryList] = useState<Record<string, Post[]>>({});
+  const postTotal = categories.postTotal;
+  const categoryList: Record<string, Post[]> = categories.categoryList;
   const [searchParams] = useSearchParams();
   const category = searchParams.get("ct");
-
-  useEffect(() => {
-    fetch("/src/content/categories.json")
-      .then((response) => response.text())
-      .then((text) => {
-        const categories: CategoryContent = JSON.parse(text);
-        setCategoryList(categories.categoryList);
-        setPostTotal(categories.totalPost);
-      });
-  }, []);
 
   const getLinkToFirstContent = (categoryName: string): string => {
     return `/${categoryList[categoryName][0]?.slug}?ct=${categoryList[categoryName][0]?.category}`;

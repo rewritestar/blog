@@ -1,24 +1,15 @@
-import { useEffect, useState } from "react";
 import { CategoryPage } from "./category-page";
 import { useSearchParams } from "react-router";
 import type { Post } from "../../models/post.model";
+import posts from "../content/posts.json";
 
 export function CategoryList() {
-  const [totalList, setTotalList] = useState([]);
+  let totalList = posts;
   const [searchParams] = useSearchParams();
   const category = searchParams.get("ct");
-
-  useEffect(() => {
-    fetch("/src/content/posts.json")
-      .then((response) => response.text())
-      .then((text) => {
-        let list = JSON.parse(text);
-        if (category && category !== "all") {
-          list = list.filter((item: Post) => item.category === category);
-        }
-        setTotalList(list);
-      });
-  }, [category]);
+  if (category && category !== "all") {
+    totalList = posts.filter((item: Post) => item.category === category);
+  }
 
   return (
     <div className="p-4">
