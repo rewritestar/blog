@@ -8,7 +8,7 @@ import { Page } from "./components/page.tsx";
 const root = document.getElementById("root")!;
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/blog">
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/:slug" element={<Page />} />
