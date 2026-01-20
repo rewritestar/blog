@@ -1,8 +1,8 @@
 ## 해결할 문제점
 
-- 마크다운 css 안보이는 문제
 - 깃허브 페이지 배포 404 에러
 - content/posts 의 frontmatter 생성 자동화(slug 중복방지 or 자동생성, 현재 날짜로 생성날짜 설정 등)
+
 - category 중첩 형태 제공
 - content 를 .md 파일, json 파일 두곳에서 중복저장하는 문제
 
@@ -15,3 +15,22 @@
   - 이때 카테고리 정보를 URL 에 남겨두는 것이 중요한 이유는 URL 을 통해 글을 접속했을때 다음글을 선택할때 참고하게 될 글 목록의 정보가 정해지기 때문이다.
   - 예를 들어 국내여행 카테고리에 속한 글을 읽고 다음에 읽고 싶은 글은 글 목록을 통해 선택하게 되는데, 만약 시간순으로 해당 글 바로 다음에 작성된 글을 읽고 싶을때가 있다. 이때 글 목록이 국내여행 카테고리의 글만 한정되어 있다면 시간순으로 작성된 다음글을 찾기 위해서 전체보기를 클릭하고 이전에 봤던 글을 찾아야한다.
   - 카테고리 정보를 URL 에 유지하여, 링크로 접속하여도 선택한 카테고리의 글목록으로 글을 열람할 수 있다.
+
+2. 마크다운 태그 스타일 안보이는 문제
+
+  - 원인은 tailwind 를 import 하면 디폴트로 브라우저 기본 스타일(user-agent styles)을 없애기 때문이다.
+  ```css
+  @import "tailwindcss";
+  ``` 
+  - tailwind 에서 제공한 [해결책 문서](https://github.com/tailwindlabs/tailwindcss-typography)
+  - 플러그인 설치해서 css 에 추가한 후 class="prose" 추가하면 해결된다.
+  ```html
+  npm install -D @tailwindcss/typography
+
+  @import "tailwindcss";
+  + @plugin "@tailwindcss/typography";
+
+  <Markdown class="prose">
+    {markdown}
+  </Markdown>
+  ```
