@@ -1,6 +1,6 @@
 ---
 title: test2
-category: category-test
+category: test
 createdDate: 2026-01-16
 slug: test2
 ---

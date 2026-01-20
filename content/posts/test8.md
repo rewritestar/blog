@@ -1,6 +1,6 @@
 ---
 title: test8
-category: category-test
+category: test
 createdDate: 2026-01-16
 slug: test8
 ---

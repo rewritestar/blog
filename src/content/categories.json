@@ -1,67 +1,67 @@
 {
   "categoryList": {
-    "category-test": [
+    "test": [
       {
         "title": "test9",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test9"
       },
       {
         "title": "test",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-15T00:00:00.000Z",
         "slug": "test"
       },
       {
         "title": "test2",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test2"
       },
       {
         "title": "test3",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test3"
       },
       {
         "title": "test4",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test4"
       },
       {
         "title": "test5",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test5"
       },
       {
         "title": "test6",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test6"
       },
       {
         "title": "test7",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test7"
       },
       {
         "title": "test8",
-        "category": "category-test",
+        "category": "test",
         "createdDate": "2026-01-16T00:00:00.000Z",
         "slug": "test8"
       }
     ],
-    "category2": [
+    "책": [
       {
-        "title": "카테고리 테스트",
-        "category": "category2",
-        "createdDate": "2026-01-17T08:17",
-        "slug": "newcateogry"
+        "title": "나미야 잡화점의 기적을 읽고",
+        "category": "책",
+        "createdDate": "2026-01-20T16:23",
+        "slug": "책-나미야잡화점의기적"
       }
     ]
   },
