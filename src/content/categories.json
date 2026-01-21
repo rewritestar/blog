@@ -58,6 +58,12 @@
     ],
     "책": [
       {
+        "title": null,
+        "category": "책",
+        "createdDate": "2026-01-21T21:16",
+        "slug": "wQKL96-fo_UFNOWCOJC9z"
+      },
+      {
         "title": "나미야 잡화점의 기적을 읽고",
         "category": "책",
         "createdDate": "2026-01-20T16:23",
@@ -65,5 +71,5 @@
       }
     ]
   },
-  "postTotal": 10
+  "postTotal": 11
 }

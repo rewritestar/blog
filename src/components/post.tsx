@@ -27,7 +27,7 @@ export function Post() {
       title: selectedPost.title,
       category: selectedPost.category,
       createdDate: moment(selectedPost.createdDate)
-        .format("YYYY. MM. DD. hh:mm")
+        .format("YYYY. MM. DD. HH:mm")
         .toString(),
       slug: selectedPost.slug,
     };
@@ -37,7 +37,7 @@ export function Post() {
   return (
     <div className="flex flex-col w-3xl p-8">
       {meta && markdown ? (
-        <>        
+        <>
           <Meta metaData={meta} />
           <div className="mt-8 prose">
             <Markdown>{markdown}</Markdown>
