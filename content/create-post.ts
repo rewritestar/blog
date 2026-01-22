@@ -6,25 +6,32 @@ import { nanoid } from "nanoid";
 import moment from "moment";
 import readline from "readline";
 
+const fileName = process.argv[2];
+if (!fileName) {
+  console.error("Option Error! 파일 이름을 입력해주세요.");
+  process.exit(0);
+}
+
 const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = path.join(BASE_DIR, "posts");
 
-const { slugSet, categorySet } = readPosts();
+const { slugSet, categorySet, maxFileNum } = readPosts();
 const category = await ask(categorySet);
-const { slug, content } = getSlugAndContent();
+const content = getContent(slugSet);
 
 // 파일 생성
 try {
-  const fileName = `${slug}.md`;
-  const filePath = path.join(POSTS_DIR, fileName);
+  const fullFileName = `${String(maxFileNum + 1).padStart(5, "0")}_${fileName}.md`;
+  const filePath = path.join(POSTS_DIR, fullFileName);
   fs.writeFileSync(filePath, content);
 } catch (err) {
   console.error(err);
 }
 
 function readPosts() {
-  const slugSet = new Set();
+  const slugSet = new Set<string>();
   const categorySet = new Set<string>();
+  const fileNumList: number[] = [];
   try {
     const files = fs.readdirSync(POSTS_DIR);
     files.forEach((fileName) => {
@@ -34,6 +41,7 @@ function readPosts() {
         return;
       }
 
+      // slug, category Set 획득
       try {
         const rawData = fs.readFileSync(filePath, "utf-8");
         const { data } = matter(rawData);
@@ -42,11 +50,24 @@ function readPosts() {
       } catch (err) {
         console.error(err);
       }
+
+      // 파일 인덱스 리스트 획득
+      const match = fileName.match(/^([0-9]+)_/);
+      if (!match) {
+        return;
+      }
+      fileNumList.push(parseInt(match[1]));
     });
   } catch (err) {
     console.error(err);
   }
-  return { slugSet, categorySet };
+
+  // 파일 인덱스 최대값 구하기
+  let maxFileNum = 0;
+  if (fileNumList.length > 0) {
+    maxFileNum = Math.max(...fileNumList);
+  }
+  return { slugSet, categorySet, maxFileNum };
 }
 
 // 존재하는 카테고리 리스트
@@ -83,7 +104,8 @@ ${getCategoryList(categorySet)}
   });
 }
 
-function getSlugAndContent() {
+// 디폴트 컨텐츠 반환
+function getContent(slugSet: Set<string>) {
   // 중복방지 slug 생성
   let slug = nanoid();
   while (slugSet.has(slug)) {
@@ -98,5 +120,5 @@ createdDate: ${moment(new Date()).format("YYYY-MM-DDTHH:mm")}
 slug: ${slug}
 ---
 `;
-  return { slug, content };
+  return content;
 }

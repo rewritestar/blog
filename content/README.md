@@ -3,6 +3,7 @@
 1. slug 는 자동 문자열로 생성하고, 기존의 slug 와 중복되지 않도록 생성한다.
 2. createdDate 는 파일 생성 시점으로 결정된다.
 3. /create-post.ts 프로그램을 통해 카테고리를 직접 입력하여 지정한다.
+4. 파일 이름은 00000_fileName.md 형식을 따른다.
 
 ## 포스트 생성 프로그램 사용법
 
@@ -11,7 +12,9 @@
 - 루트 폴더에서
 
 ```
-$ node ./content/create-post.ts
+$ node ./content/create-post.ts [option]
+
+option 은 파일이름(필수 입력)
 ```
 
 ## 구현 상세
@@ -27,9 +30,9 @@ $ node ./content/create-post.ts
 
 - ask(categorySet);
 
-### slug 생성 및 디폴트 컨텐츠(frontmatter) 양식 지정
+### slug 생성 후 디폴트 컨텐츠(frontmatter) 생성 및 반환
 
-- getSlugAndContent();
+- getContent();
 
 ### 포스트 파일 생성
 
