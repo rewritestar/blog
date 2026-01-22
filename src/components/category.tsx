@@ -9,6 +9,10 @@ export function Category() {
   const category = searchParams.get("ct");
 
   const getLinkToFirstContent = (categoryName: string): string => {
+    categoryList[categoryName].sort(
+      (a: Post, b: Post) =>
+        new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime(),
+    );
     return `/${categoryList[categoryName][0]?.slug}?ct=${categoryList[categoryName][0]?.category}`;
   };
 
