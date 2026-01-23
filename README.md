@@ -1,8 +1,7 @@
 ## 해결할 문제점
 
-- create-post.ts 파일명 입력시 띄어쓰기 있으면 짤린다.(argv가 띄어쓰기로 구분되어서 그럼)
-- 카테고리별로 전체 개수 표시
-- 페이징 화면 크기 고정
+- 카테고리 리스트, 페이지 위치에 따라 따라오기
+- 포스트 리스트의 이름 붙이기, 리스트 열고 닫기 가능하도록 하기
 - 이미지 관리방법 찾기
 - category 중첩 형태 제공
 - content 를 .md 파일, json 파일 두곳에서 중복저장하는 문제
@@ -53,3 +52,7 @@
   - 404.html 에서는 목적 URL 정보(https://example/repo-name/category)를 query string(https://example/repo-name/?category) 으로 만들어 사실상 도메인 URL 로 이동하도록 한다.
   - 도메인 index.html 에서는 스크립트를 추가하여 리액트 소스인 js 가 로딩되면 다시 목적 URL 로 이동한다.(https://example/repo-name/category)
   - [참고 문서 spa-github-pages](https://github.com/rafgraph/spa-github-pages)
+
+4. create-post.ts 파일명 입력시 띄어쓰기 있으면 짤린다.(argv가 띄어쓰기로 구분되어서 그럼)
+
+- 명령어에 따옴표로 감싸서 입력한다.

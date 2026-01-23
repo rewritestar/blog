@@ -1,12 +1,14 @@
-import { NavLink, useSearchParams } from "react-router";
-import categories from "../content/categories.json";
-import type { Post } from "../../models/post.model";
+import { NavLink } from "react-router";
+import categories from "../../content/categories.json";
+import type { Post } from "../../../models/post.model";
 
-export function Category() {
+interface CategoryProps {
+  category: string;
+}
+
+export function CategoryList({ category }: CategoryProps) {
   const postTotal = categories.postTotal;
   const categoryList: Record<string, Post[]> = categories.categoryList;
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("ct");
 
   const getLinkToFirstContent = (categoryName: string): string => {
     categoryList[categoryName].sort(
@@ -27,7 +29,7 @@ export function Category() {
         {Object.keys(categoryList).map((categoryName) => (
           <NavLink to={getLinkToFirstContent(categoryName)}>
             <div className={`p-1 ${category === categoryName && "font-bold"}`}>
-              {categoryName}
+              {categoryName}({categoryList[categoryName].length})
             </div>
           </NavLink>
         ))}

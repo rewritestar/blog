@@ -14,8 +14,10 @@
 ```
 $ node ./content/create-post.ts [option]
 
-option 은 파일이름(필수 입력)
 ```
+
+- option: 파일이름(필수입력)
+- 파일이름에 띄어쓰기가 있을 경우 따옴표로 감싼다.(예: /create-posts.ts "파일 이름 예제.md")
 
 ## 구현 상세
 
